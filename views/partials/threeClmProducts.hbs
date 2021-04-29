@@ -1,0 +1,36 @@
+{{#each products}}
+    <div class="col-xl-4 col-md-6 col-12 mb-40">
+
+        <div class="product-item">
+            <div class="product-inner">
+
+                <div class="image">
+                    <img src={{this.image}} alt="">
+
+                    <div class="image-overlay">
+                        <div class="action-buttons">
+                            <button id="atc_{{this._id}}" class="add-to-cart">add to cart</button>
+                            <button  id="vp_{{this._id}}" class="view-product">view product</button>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="content">
+
+                    <div class="content-left">
+                        <h4 class="title"><input style="display: none" class="request-product" value="{{this.name}}">{{this.name}}</h4>
+                        <br>
+                        <h5>Description: {{this.description}}</h5>
+                    </div>
+
+                    <div class="content-right">
+                        <span class="price">$ {{this.price}}</span>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+{{/each}}

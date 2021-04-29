@@ -1,0 +1,183 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>ATN - Toy shop for teenagers</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="../../public/assets/images/favicon.ico">
+
+    <!-- CSS
+	============================================ -->
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../../public/assets/css/bootstrap.min.css">
+
+    <!-- Icon Font CSS -->
+    <link rel="stylesheet" href="../../public/assets/css/icon-font.min.css">
+
+    <!-- Plugins CSS -->
+    <link rel="stylesheet" href="../../public/assets/css/plugins.css">
+
+    <!-- Helper CSS -->
+    <link rel="stylesheet" href="../../public/assets/css/helper.css">
+
+    <!-- Main Style CSS -->
+    <link rel="stylesheet" href="../../public/assets/css/style.css">
+
+    <!-- Modernizer JS -->
+    <script src="../../public/assets/js/vendor/modernizr-3.7.1.min.js"></script>
+</head>
+
+<body>
+
+<div class="main-wrapper">
+
+    {{>header}}
+
+    {{{body}}}
+
+    {{>brandSection}}
+
+    {{>footer}}
+
+</div>
+
+<!-- JS
+============================================ -->
+
+<!-- jQuery JS -->
+<script src="../../public/assets/js/vendor/jquery-3.4.1.min.js"></script>
+<!-- Popper JS -->
+<script src="../../public/assets/js/popper.min.js"></script>
+<!-- Bootstrap JS -->
+<script src="../../public/assets/js/bootstrap.min.js"></script>
+<!-- Plugins JS -->
+<script src="../../public/assets/js/plugins.js"></script>
+<!-- Ajax Mail -->
+<script src="../../public/assets/js/ajax-mail.js"></script>
+<!-- Main JS -->
+<script src="../../public/assets/js/main.js"></script>
+
+<script>
+    $(document).ready(() => {
+        let loginUsername, loginPassword;
+        $("#login-submit").click((e) => {
+            e.preventDefault();
+            loginUsername = $("#login-username").val();
+            loginPassword = $("#login-password").val();
+
+            $.post("http://localhost:3000/login", {
+                username: loginUsername,
+                password: loginPassword,
+
+            }, (res) => {
+                console.log(res);
+                console.log(res.message)
+                if (!loginUsername || !loginPassword) {
+                    alert("Login Failed");
+                    return;
+                }
+                location.href = "/index";
+            });
+        });
+    });
+
+    $(document).ready(() => {
+        let email, signupUsername, signupPassword;
+
+        $("#signup-submit").click((e) => {
+            e.preventDefault();
+            email = $("#email").val();
+            signupUsername = $("#signup-username").val();
+            signupPassword = $("#signup-password").val();
+            // cfPassword = $("#cfPassword").val();
+
+            $.post("http://localhost:3000/signup", {
+                username: signupUsername,
+                email: email,
+                password: signupPassword,
+
+            }, () => {
+                if (!signupUsername || !signupPassword || !email) {
+                    alert("Signup Failed");
+                    return;
+                }
+                location.href = "/index";
+            });
+        });
+    });
+
+    $(document).ready(() => {
+        let name, price, image, description, category;
+
+        $("#product-save-change").click((e) => {
+            e.preventDefault();
+            name = $("#product-name").val();
+            price = $("#product-price").val();
+            image = $("#product-image").val();
+            description = $("#product-description").val();
+            category = $("#product-category").val();
+
+            $.post("http://localhost:3000/product/add", {
+                name: name,
+                price: price,
+                image: image,
+                description: description,
+                category: category
+            }, () => {
+                location.reload();
+            });
+        });
+    });
+
+    $(document).ready(() => {
+        let productId;
+
+        $(".add-to-cart").click((e) => {
+            e.preventDefault();
+            if (e.target.id) {
+                productId = e.target.id;
+                $.post("http://localhost:3000/add-to-cart", {
+                    productId: productId
+                }, () => {
+                    location.href = "/cart";
+                });
+            }
+        });
+
+        $(".view-product").click((e) => {
+            e.preventDefault();
+            if (e.target.id) {
+                productId = e.target.id;
+                $.post("http://localhost:3000/product", {
+                    productId: productId
+                }, () => {
+                    location.href = "/product";
+                });
+            }
+        });
+
+        $(".remove-from-cart").click((e) => {
+            e.preventDefault();
+            if (e.target.id) {
+                productId = e.target.id;
+                $.post("http://localhost:3000/delete-from-cart", {
+                    productId: productId
+                }, () => {
+                    location.href = "/cart";
+                });
+            }
+        });
+    });
+
+    $(document).ready(() => {
+        let productId;
+
+
+    });
+</script>
+</body>
+</html>

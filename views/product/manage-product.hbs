@@ -1,0 +1,99 @@
+<!-- Page Section Start -->
+<div class="page-section section section-padding">
+    <div class="container">
+        <div class="row mbn-30">
+
+            <!-- My Account Tab Menu Start -->
+            <div class="col-lg-3 col-12 mb-30">
+                <div class="myaccount-tab-menu nav" role="tablist">
+                    <a href="#dashboad" class="active" data-toggle="tab"><i class="fa fa-dashboard"></i>
+                        All Products</a>
+
+                    <a href="#orders" data-toggle="tab"><i class="fa fa-cart-arrow-down"></i> Add Product</a>
+
+                    <a href="#account-info" data-toggle="tab"><i class="fa fa-cloud-download"></i> Add Category</a>
+
+                    <a href="/index"><i class="fa fa-sign-out"></i> Back to Home</a>
+                </div>
+            </div>
+            <!-- My Account Tab Menu End -->
+
+            <!-- My Account Tab Content Start -->
+            <div class="col-lg-9 col-12 mb-30">
+                <div class="tab-content" id="myaccountContent">
+                    <!-- Single Tab Content Start -->
+                    <div class="tab-pane fade show active" id="dashboad" role="tabpanel">
+                        <h3>All Products</h3>
+                        <div class="row">
+                            {{>threeClmProducts}}
+                        </div>
+                    </div>
+                    <!-- Single Tab Content End -->
+
+                    <!-- Single Tab Content Start -->
+                    <div class="tab-pane fade" id="orders" role="tabpanel">
+                        <div class="myaccount-content">
+                            <h3>Add Product</h3>
+
+                            <div class="account-details-form">
+                                <form action="#">
+                                    <div class="row">
+                                        <div class="col-12 mb-30">
+                                            <input id="product-name" placeholder="Product name" type="text" required="required">
+                                        </div>
+
+                                        <div class="col-12 mb-30">
+                                            <input id="product-price" placeholder="Price" type="text" required="required">
+                                        </div>
+
+                                        <div class="col-12 mb-30">
+                                            <input id="product-image" placeholder="Image" type="text" required="required">
+                                        </div>
+
+                                        <div class="col-12 mb-30">
+                                            <input id="product-description" placeholder="Description" type="text" required="required">
+                                        </div>
+
+                                        <div class="col-12 mb-30">
+                                            <input id="product-category" placeholder="Category" type="text" required="required" value="Creative toys">
+                                        </div>
+
+                                        <div class="col-12">
+                                            <input id="product-save-change" class="btn btn-dark btn-round btn-lg" type="submit" value="Add Product">
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Single Tab Content End -->
+
+                    <!-- Single Tab Content Start -->
+                    <div class="tab-pane fade" id="account-info" role="tabpanel">
+                        <div class="myaccount-content">
+                            <h3>Add Category</h3>
+
+                            <div class="account-details-form">
+                                <form action="#">
+                                    <div class="row">
+                                        <div class="col-12 mb-30">
+                                            <input id="category-name" placeholder="Category name" type="text">
+                                        </div>
+
+                                        <div class="col-12">
+                                            <input id="category-save-change" class="btn btn-dark btn-round btn-lg" type="submit" value="Add Category">
+                                        </div>
+
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Single Tab Content End -->
+                </div>
+            </div>
+            <!-- My Account Tab Content End -->
+
+        </div>
+    </div>
+</div><!-- Page Section End -->

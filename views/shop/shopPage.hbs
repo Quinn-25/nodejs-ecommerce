@@ -1,0 +1,64 @@
+<!-- Page Section Start -->
+<div class="page-section section section-padding">
+    <div class="container">
+        <div class="row row-30 mbn-40">
+
+            <div class="col-xl-9 col-lg-8 col-12 order-1 order-lg-2 mb-40">
+                <div class="row">
+
+                    <div class="col-12">
+                        <div class="product-short">
+                            <h4>Short by:</h4>
+                            <select class="nice-select">
+                                <option>Name Ascending</option>
+                                <option>Name Descending</option>
+                                <option>Price Ascending</option>
+                                <option>Price Descending</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    {{> threeClmProducts}}
+
+                    <div class="col-12">
+                        <ul class="page-pagination">
+                            <li><a href="#"><i class="fa fa-angle-left"></i></a></li>
+                            <li class="active"><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-xl-3 col-lg-4 col-12 order-2 order-lg-1 mb-40">
+
+                <div class="sidebar">
+                    <h4 class="sidebar-title">Category</h4>
+                    <ul class="sidebar-list">
+                        {{#each categories}}
+                            <li><a href="#">{{this.name}}</a></li>
+                        {{/each}}
+                    </ul>
+                </div>
+
+                <div class="sidebar">
+                    <h3 class="sidebar-title">Tags</h3>
+                    <ul class="sidebar-tag">
+                        <li><a href="#">New</a></li>
+                        <li><a href="#">brand</a></li>
+                        <li><a href="#">black</a></li>
+
+                    </ul>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div><!-- Page Section End -->
+
+

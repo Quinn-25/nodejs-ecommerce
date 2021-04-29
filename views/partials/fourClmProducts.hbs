@@ -1,0 +1,36 @@
+{{#each products}}
+    <div class="col-xl-3 col-lg-4 col-md-6 col-12 mb-40">
+
+        <div class="product-item">
+            <div class="product-inner">
+
+                <div class="image">
+                    <img src={{this.image}} alt="">
+
+                    <div class="image-overlay">
+                        <div class="action-buttons">
+                            <button>add to cart</button>
+                            <button>add to wishlist</button>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="content">
+
+                    <div class="content-left">
+                        <h4 class="title"><a href="single-product.html">{{this.name}}</a></h4>
+                        <br>
+                        <h5>Description: {{this.description}}</h5>
+                    </div>
+
+                    <div class="content-right">
+                        <span class="price">$ {{this.price}}</span>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+{{/each}}
