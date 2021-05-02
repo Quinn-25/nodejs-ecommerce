@@ -9,6 +9,8 @@ const session = require("express-session");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+const uri = 'mongodb://${dbConfig.HOST}:${dbConfig.PORT}/${dbConfig.DB}';
+const uriForCloud = 'mongodb+srv://quanganh:quanganh@cluster0.lakf5.mongodb.net/quinn_db'
 
 app.engine( 'hbs', hbs( {
     extname: 'hbs',
@@ -31,35 +33,9 @@ app.use(session({
     cookie: { maxAge: 60000 }
 }));
 
-app.get('/set_session', (req, res) => {
-    //set a object to session
-    req.session.User = {
-        username: 'test',
-        role: 'user'
-    }
-
-    return res.status(200).json({status: 'success'})
-})
-
-app.get('/get_session', (req, res) => {
-    //check session
-    if(req.session.User){
-        return res.status(200).json({status: 'success', session: req.session.User})
-    }
-    return res.status(200).json({status: 'error', session: 'No session'})
-})
-
-app.get('/destroy_session', (req, res) => {
-    //destroy session
-    req.session.destroy(function(err) {
-        return res.status(200).json({status: 'success', session: 'cannot access session here'})
-    })
-})
-
-
 // Connect to db
 db.mongoose
-    .connect(`mongodb://${dbConfig.HOST}:${dbConfig.PORT}/${dbConfig.DB}`, {
+    .connect(uriForCloud, {
         useNewUrlParser: true,
         useUnifiedTopology: true
     })
