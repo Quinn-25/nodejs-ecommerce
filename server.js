@@ -9,7 +9,7 @@ const session = require("express-session");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-const uri = 'mongodb://${dbConfig.HOST}:${dbConfig.PORT}/${dbConfig.DB}';
+const uri = `mongodb://${dbConfig.HOST}:${dbConfig.PORT}/${dbConfig.DB}`
 const uriForCloud = 'mongodb+srv://quanganh:quanganh@cluster0.lakf5.mongodb.net/quinn_db'
 
 app.engine( 'hbs', hbs( {
